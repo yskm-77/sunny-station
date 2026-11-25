@@ -1,201 +1,247 @@
-<!doctype html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>阳光驿站 · 心理专属空间 | 留言板</title>
-  <meta name="description" content="计算机科学与技术学院阳光驿站「心理专属空间」活动作品：为驿站建言献策的本地留言板，留言仅保存在浏览器本地。">
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>阳光驿站留言板</title>
+<style>
+  body {
+    font-family: "Microsoft YaHei", Arial, sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+  }
+  .box {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 24px;
+  }
+  h1 {
+    text-align: center;
+    font-size: 26px;
+    margin: 0 0 6px 0;
+  }
+  .sub {
+    text-align: center;
+    color: #888;
+    font-size: 13px;
+    margin: 0 0 20px 0;
+  }
+  p {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  h2 {
+    font-size: 18px;
+    border-left: 4px solid #4a90d9;
+    padding-left: 8px;
+    margin: 28px 0 12px 0;
+  }
+  label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  input, select, textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+  textarea {
+    height: 110px;
+    resize: vertical;
+  }
+  button {
+    background: #4a90d9;
+    color: #fff;
+    border: none;
+    padding: 10px 24px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #3a7cbd;
+  }
+  .count {
+    font-size: 12px;
+    color: #999;
+    margin-top: -10px;
+    margin-bottom: 14px;
+  }
+  .item {
+    border: 1px solid #e5e5e5;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    background: #fafafa;
+  }
+  .item .name {
+    font-weight: bold;
+    font-size: 14px;
+  }
+  .item .time {
+    color: #999;
+    font-size: 12px;
+    margin-left: 8px;
+  }
+  .item .text {
+    font-size: 14px;
+    margin: 6px 0;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+  .item .cat {
+    color: #4a90d9;
+    font-size: 12px;
+  }
+  .item .del {
+    color: #d9534f;
+    font-size: 12px;
+    cursor: pointer;
+    float: right;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 12px;
+    margin-top: 30px;
+  }
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#form">跳到留言表单</a>
+<div class="box">
 
-  <div class="page">
-    <header class="hero">
-      <div class="hero__glow" aria-hidden="true"></div>
+  <h1>阳光驿站留言板</h1>
+  <p class="sub">心理专属空间 · Web 开发活动</p>
 
-      <nav class="nav">
-        <span class="brand">
-          <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
-            <circle cx="16" cy="16" r="7" />
-            <g stroke-linecap="round">
-              <path d="M16 2v4M16 26v4M2 16h4M26 16h4M6.1 6.1l2.8 2.8M23.1 23.1l2.8 2.8M25.9 6.1l-2.8 2.8M8.9 23.1l-2.8 2.8" />
-            </g>
-          </svg>
-          <span class="brand__text">阳光驿站<em>Sunny Station</em></span>
-        </span>
-        <span class="nav__badge">心理专属空间 · Web 开发</span>
-      </nav>
+  <p>这里是阳光驿站的留言板，大家可以给驿站提建议：想参加什么活动、希望增加什么服务、对空间布置有什么想法，都可以写在这里。</p>
+  <p>留言只保存在你自己的浏览器里，不会上传到服务器。</p>
 
-      <div class="hero__content">
-        <p class="eyebrow">MENTAL WELLBEING × WEB</p>
-        <h1>把想说的话<br>留在这里</h1>
-        <p class="lead">为阳光驿站建言献策——关于活动、空间、内容，或任何你希望被听见的想法。</p>
-        <div class="hero__actions">
-          <a class="btn btn--primary" href="#form">写下建议</a>
-          <a class="btn btn--ghost" href="#messages">看看留言墙</a>
-        </div>
-        <p class="hero__note">
-          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2l6 2.5v5c0 3.6-2.5 6.6-6 8-3.5-1.4-6-4.4-6-8v-5L10 2z"/></svg>
-          留言只保存在你的浏览器本地，不会上传服务器
-        </p>
-      </div>
+  <h2>写留言</h2>
 
-      <svg class="hero__wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,64 C240,110 420,10 720,48 C980,82 1180,20 1440,54 L1440,120 L0,120 Z" />
-      </svg>
-    </header>
+  <form id="form">
+    <label>昵称（可以不填）</label>
+    <input type="text" id="name" maxlength="12" placeholder="例如：小明">
 
-    <main>
-      <section class="section intro" aria-labelledby="intro-title">
-        <div class="section__head">
-          <h2 id="intro-title">这是一个怎样的留言板</h2>
-          <p>不是问卷，也不是匿名树洞——是给驿站的一份具体建议。</p>
-        </div>
-        <div class="cards">
-          <article class="card">
-            <span class="card__icon" aria-hidden="true">✳</span>
-            <h3>你可以聊什么</h3>
-            <p>想参加的活动形式、希望驿站增加的服务、空间布置、选题建议，或是你观察到的问题与改进办法。</p>
-          </article>
-          <article class="card">
-            <span class="card__icon" aria-hidden="true">◍</span>
-            <h3>建议怎么写更有用</h3>
-            <p>说清“现状 + 你的建议 + 期望的效果”，比一句“多办活动”更容易被采纳。</p>
-          </article>
-          <article class="card">
-            <span class="card__icon" aria-hidden="true">⌘</span>
-            <h3>数据怎么处理</h3>
-            <p>全部留言仅存于本机浏览器（localStorage）。你可以随时删除，或导出成 JSON 交给驿站。</p>
-          </article>
-        </div>
-      </section>
+    <label>类别</label>
+    <select id="cat">
+      <option value="活动建议">活动建议</option>
+      <option value="空间与环境">空间与环境</option>
+      <option value="内容与选题">内容与选题</option>
+      <option value="其他">其他</option>
+    </select>
 
-      <section class="quote" aria-label="一句话">
-        <p class="quote__mark" aria-hidden="true">“</p>
-        <p class="quote__text">被听见，本身就是一种支持。</p>
-        <p class="quote__sub">所以我们把“说”做成一个入口——你的每条建议，都会成为驿站下一次改进的依据。</p>
-      </section>
+    <label>留言内容</label>
+    <textarea id="text" maxlength="300" placeholder="写点什么吧……"></textarea>
+    <div class="count"><span id="count">0</span> / 300</div>
 
-      <section class="section composer" id="form" aria-labelledby="form-title">
-        <div class="composer__panel">
-          <div class="section__head section__head--tight">
-            <h2 id="form-title">写下你的建议</h2>
-            <p>带 <span class="req">*</span> 的为必填项，其余可留空。</p>
-          </div>
+    <button type="submit">提交留言</button>
+  </form>
 
-          <form id="messageForm" novalidate>
-            <div class="field-row">
-              <div class="field">
-                <label for="nickname">昵称 <span class="hint">选填，最多 12 字</span></label>
-                <input id="nickname" name="nickname" type="text" maxlength="12" placeholder="例如：一位大二同学" autocomplete="nickname">
-              </div>
-              <div class="field">
-                <label for="contact">联系方式 <span class="hint">选填，仅本机可见</span></label>
-                <input id="contact" name="contact" type="text" maxlength="40" placeholder="QQ / 微信 / 邮箱">
-              </div>
-            </div>
+  <h2>大家的留言（<span id="total">0</span> 条）</h2>
+  <div id="list"></div>
 
-            <div class="field">
-              <label for="category">建议类别 <span class="req">*</span></label>
-              <select id="category" name="category" required>
-                <option value="activity">活动建议</option>
-                <option value="space">空间与环境</option>
-                <option value="content">内容与选题</option>
-                <option value="other">其他想法</option>
-              </select>
-            </div>
+  <div class="footer">计算机科学与技术学院 · 阳光驿站</div>
+</div>
 
-            <div class="field">
-              <label for="message">你的建议 <span class="req">*</span></label>
-              <textarea id="message" name="message" rows="6" maxlength="300" required
-                placeholder="例如：希望驿站每月办一次“情绪急救”主题沙龙，每次 40 分钟，人数控制在 15 人以内。"></textarea>
-              <div class="field__meta">
-                <span id="counter">0 / 300</span>
-                <span class="field__tip">建议 20 字以上，写具体一点更容易被采纳</span>
-              </div>
-            </div>
+<script>
+  var list = document.getElementById("list");
+  var total = document.getElementById("total");
+  var input = document.getElementById("text");
+  var count = document.getElementById("count");
 
-            <div class="form__actions">
-              <button class="btn btn--primary" type="submit">提交留言</button>
-              <button class="btn btn--ghost" type="reset" id="resetBtn">清空重写</button>
-              <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
-            </div>
-          </form>
-        </div>
+  var messages = JSON.parse(localStorage.getItem("sunny_messages") || "[]");
 
-        <aside class="composer__aside">
-          <h3>写之前，可以先想想</h3>
-          <ul class="tips">
-            <li><b>现状：</b>你看到了什么现象？</li>
-            <li><b>建议：</b>你希望怎么改、改成什么样？</li>
-            <li><b>效果：</b>这样做能帮到谁、解决什么？</li>
-          </ul>
-          <p class="aside__note">如果内容涉及个人隐私或正在经历的困扰，建议直接联系驿站或学校心理中心，而不是写在这里。</p>
-        </aside>
-      </section>
+  function render() {
+    list.innerHTML = "";
+    total.innerHTML = messages.length;
 
-      <section class="section board" id="messages" aria-labelledby="board-title">
-        <div class="board__head">
-          <div class="section__head section__head--tight">
-            <h2 id="board-title">留言墙</h2>
-            <p><span id="messageCount">0</span> 条留言，只在本机保存。</p>
-          </div>
-          <div class="board__tools">
-            <button class="btn btn--small" type="button" id="exportBtn">导出 JSON</button>
-          </div>
-        </div>
+    if (messages.length === 0) {
+      list.innerHTML = "<p style='color:#999;font-size:14px'>还没有留言，快来写第一条吧。</p>";
+      return;
+    }
 
-        <div class="filters" id="filters" role="tablist" aria-label="按类别筛选">
-          <button class="chip is-active" type="button" data-filter="all" role="tab" aria-selected="true">全部</button>
-          <button class="chip" type="button" data-filter="activity" role="tab" aria-selected="false">活动建议</button>
-          <button class="chip" type="button" data-filter="space" role="tab" aria-selected="false">空间与环境</button>
-          <button class="chip" type="button" data-filter="content" role="tab" aria-selected="false">内容与选题</button>
-          <button class="chip" type="button" data-filter="other" role="tab" aria-selected="false">其他想法</button>
-        </div>
+    for (var i = 0; i < messages.length; i++) {
+      var m = messages[i];
+      var div = document.createElement("div");
+      div.className = "item";
 
-        <ul class="message-list" id="messageList" aria-live="polite"></ul>
+      var del = document.createElement("span");
+      del.className = "del";
+      del.innerHTML = "删除";
+      (function (id) {
+        del.onclick = function () {
+          if (!confirm("确定删除这条留言吗？")) return;
+          messages = messages.filter(function (x) { return x.id !== id; });
+          localStorage.setItem("sunny_messages", JSON.stringify(messages));
+          render();
+        };
+      })(m.id);
 
-        <div class="empty" id="emptyState">
-          <svg viewBox="0 0 64 64" aria-hidden="true">
-            <rect x="10" y="14" width="44" height="34" rx="6" />
-            <path d="M18 24h28M18 32h20M18 40h12" stroke-linecap="round" />
-          </svg>
-          <p>还没有留言。第一条建议，从你开始。</p>
-          <a class="btn btn--small btn--primary" href="#form">去写一条</a>
-        </div>
-      </section>
+      var name = document.createElement("span");
+      name.className = "name";
+      name.textContent = m.name || "匿名";
 
-      <section class="section about" aria-labelledby="about-title">
-        <div class="about__grid">
-          <div>
-            <h2 id="about-title">关于这个小站</h2>
-            <p>这是计算机科学与技术学院阳光驿站「心理专属空间——Web 开发」活动的参与作品，选择的方向是<b>驿站留言页</b>：把“建言献策”做成一个真正能用的轻量工具，而不是一张静态海报。</p>
-            <p>页面不依赖任何后端与第三方脚本，所有数据都留在你自己的浏览器里。评审或驿站需要汇总时，可以用「导出 JSON」把本机留言交给负责人。</p>
-          </div>
-          <div>
-            <h3>素材与实现说明</h3>
-            <ul class="credits">
-              <li><b>代码：</b>手写 HTML / CSS / JavaScript，无框架、无第三方库。</li>
-              <li><b>图形：</b>全部为内联 SVG 与 CSS 绘制，未使用任何网络图片。</li>
-              <li><b>字体：</b>使用系统字体（苹方、微软雅黑、思源黑体等），不加载外部字体文件。</li>
-              <li><b>数据：</b>仅保存在浏览器 localStorage，不上传、不统计。</li>
-            </ul>
-            <h3>隐私说明</h3>
-            <p class="muted">留言与联系方式只写入本机 localStorage；清除浏览器数据、换浏览器或换设备都不会同步。请在提交前自行确认内容。</p>
-          </div>
-        </div>
-      </section>
-    </main>
+      var time = document.createElement("span");
+      time.className = "time";
+      time.innerHTML = m.time;
 
-    <footer class="footer">
-      <p>计算机科学与技术学院 · 阳光驿站</p>
-      <p class="muted">心理专属空间 · Web 开发活动作品 · 2025</p>
-    </footer>
-  </div>
+      var text = document.createElement("div");
+      text.className = "text";
+      text.textContent = m.text;
 
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+      var cat = document.createElement("span");
+      cat.className = "cat";
+      cat.textContent = m.cat;
 
-  <script src="js/app.js" defer></script>
+      div.appendChild(del);
+      div.appendChild(name);
+      div.appendChild(time);
+      div.appendChild(text);
+      div.appendChild(cat);
+      list.appendChild(div);
+    }
+  }
+
+  document.getElementById("form").onsubmit = function (e) {
+    e.preventDefault();
+
+    var text = input.value.trim();
+    if (text === "") {
+      alert("留言内容不能为空");
+      return;
+    }
+
+    var d = new Date();
+    var time = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() +
+               " " + d.getHours() + ":" + d.getMinutes();
+
+    messages.unshift({
+      id: Date.now(),
+      name: document.getElementById("name").value.trim(),
+      cat: document.getElementById("cat").value,
+      text: text,
+      time: time
+    });
+
+    localStorage.setItem("sunny_messages", JSON.stringify(messages));
+
+    document.getElementById("form").reset();
+    count.innerHTML = "0";
+    render();
+  };
+
+  input.oninput = function () {
+    count.innerHTML = input.value.length;
+  };
+
+  render();
+</script>
 </body>
 </html>
+
